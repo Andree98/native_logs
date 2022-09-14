@@ -1,12 +1,13 @@
 package com.example.native_logs
 
 import androidx.annotation.NonNull
-
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
+import mobi.lab.scrolls.Log
+import mobi.lab.scrolls.LogImplCat
+
 
 /** NativeLogsPlugin */
 class NativeLogsPlugin: FlutterPlugin, MethodCallHandler {
@@ -22,8 +23,8 @@ class NativeLogsPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+    if (call.method == "log") {
+      Log.setImplementation(LogImplCat::class.java)
     } else {
       result.notImplemented()
     }

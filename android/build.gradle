@@ -44,3 +44,9 @@ android {
         minSdkVersion 16
     }
 }
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "mobi.lab.scrolls:scrolls:2.0.9"
+}
+

@@ -25,6 +25,34 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+       <activity
+           android:name="mobi.lab.scrolls.activity.LogListActivity"
+           android:label="Logs"
+           android:taskAffinity="sample.application.loglist"
+           android:exported="true"
+           android:theme="@style/AppTheme">
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN"/>
+               <category android:name="android.intent.category.LAUNCHER"/>
+           </intent-filter>
+       </activity>
+       <activity
+           android:name="mobi.lab.scrolls.activity.LogPostActivity"
+           android:process=".LogPostProcess"
+           android:theme="@style/AppTheme"/>
+       <activity
+           android:name="mobi.lab.scrolls.activity.LogReaderActivity"
+           android:theme="@style/AppTheme"/>
+
+       <provider
+           android:name="mobi.lab.scrolls.ScrollsFileProvider"
+           android:authorities="${applicationId}.logs"
+           android:exported="false"
+           android:grantUriPermissions="true">
+           <meta-data
+               android:name="android.support.FILE_PROVIDER_PATHS"
+               android:resource="@xml/file_provider_paths"/>
+       </provider>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
